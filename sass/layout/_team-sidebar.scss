@@ -1,0 +1,181 @@
+.team-sidebar {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    text-align: center;
+    width: 65px;
+    z-index: 13;
+
+    body.announcement-bar--fixed & {
+        height: calc(100% - #{$announcement-bar-height});
+    }
+
+    .fa {
+        @include single-transition(all, .15s, ease);
+        @include opacity(.6);
+        color: $white;
+
+        &:hover {
+            @include opacity(1);
+        }
+    }
+
+    .team-sidebar-bottom-plugin {
+        background-color: rgba(0, 0, 0, 0.2);
+        width: 100%;
+        flex: 0 0 auto;
+        padding: 16px 0 6px;
+    }
+
+    .team-wrapper {
+        -webkit-overflow-scrolling: touch;
+        background-color: alpha-color($black, .2);
+        overflow: hidden;
+        height: 100%;
+        flex: 1 1 auto;
+        position: relative;
+
+        .team-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 16px;
+            position: relative;
+            text-align: center;
+            width: 100%;
+
+            &:not(.special):before{
+                @include border-radius(4px);
+                content: '';
+                height: 0px;
+                position: absolute;
+                left: -8px;
+                top: 18px;
+                transition: all ease-in-out 0.1s;
+                width: 8px;
+                background: $black;
+            }
+
+            &:hover::before {
+                height: 32px;
+                left: -4px;
+                top: 8px;
+            }
+
+            a {
+                display: block;
+                height: 100%;
+                text-decoration: none;
+            }
+
+            &.active {
+                .TeamIcon__content {
+                    @include opacity(1);
+                }
+            }
+
+            .TeamIcon__content {
+                @include opacity(.5);
+                &:hover {
+                    @include opacity(.8);
+
+                    &.no-hover {
+                        @include opacity(.5);
+                    }
+                }
+            }
+
+            button {
+                border: none;
+                padding: 0;
+                text-decoration: none;
+            }
+
+            &.active:before {
+                @include border-radius(4px);
+                background: $black;
+                content: '';
+                height: 41px;
+                left: -4px;
+                position: absolute;
+                top: 3px;
+                transition: all ease-in-out 0.1s;
+                width: 8px;
+            }
+
+            &.active:hover::before {
+                height: 32px;
+                top: 8px;
+            }
+
+            &.unread:before {
+                background: $black;
+                border-radius: 8px;
+                content: '';
+                height: 8px;
+                left: -4px;
+                position: absolute;
+                top: 18px;
+                transition: all ease-in-out 0.1s;
+                width: 8px;
+            }
+
+            &.unread:hover::before {
+                height: 16px;
+                top: 15px;
+                width: 8px;
+            }
+
+            a.team-disabled {
+                @include opacity(.5);
+                cursor: not-allowed;
+            }
+
+            .team-btn {
+                color: var(--sidebar-header-text-color);
+            }
+
+            .order-indicator {
+                position: absolute;
+                width: 16px;
+                height: 16px;
+                left: 12px;
+                top: 28px;
+                background: #000000;
+                border-radius: 4px;
+                display: flex;
+                justify-content: center;
+                text-align: center;
+                color: #FFFFFF;
+                font-style: normal;
+                font-weight: 500;
+                font-size: 12px;
+            }
+        }
+
+        .scrollbar--view {
+            padding-top: 15px;
+        }
+
+        .team-container a:hover {
+            text-decoration: none;
+        }
+    }
+}
+
+.multi-teams {
+    .sidebar--left {
+        left: 65px;
+    }
+
+    .app__content {
+        margin-left: 285px;
+    }
+    .team-sidebar {
+        .team-wrapper {
+            .team-container {
+            }
+        }
+    }
+}
