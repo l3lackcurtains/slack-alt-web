@@ -1,4 +1,4 @@
-import {create} from '@storybook/theming';
+import { create } from '@storybook/theming';
 
 export default create({
     base: 'light',
@@ -31,7 +31,7 @@ export default create({
     inputTextColor: 'black',
     inputBorderRadius: 4,
 
-    brandTitle: 'Mattermost',
-    brandUrl: 'https://mattermost.org',
-    brandImage: 'https://www.mattermost.org/wp-content/uploads/2016/03/logoHorizontal.png',
+    brandTitle: 'Bulletin',
+    brandUrl: 'http://bulletinschools.com/',
+    brandImage: '',
 });
